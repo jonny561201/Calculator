@@ -8,13 +8,14 @@ namespace Calculator
 {
     class Operator
     {
-        private static string userInput;
-
-        internal static string Combine(string p1)
+        private string userInput; 
+            
+        public string Combine(string p1)
         {
             userInput += p1;
+            Double userInputDouble = Convert.ToDouble(userInput);
 
-            return userInput;
+            return userInputDouble.ToString();
         }
     }
 }
