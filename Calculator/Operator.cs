@@ -8,14 +8,26 @@ namespace Calculator
 {
     class Operator
     {
-        private string userInput; 
+        public string _copiedResult;
+        private string _userInput;
+        public string operatorFlag;
             
         public string Combine(string p1)
         {
-            userInput += p1;
-            Double userInputDouble = Convert.ToDouble(userInput);
+            _userInput += p1;
+            Double userInputDouble = Convert.ToDouble(_userInput);
 
             return userInputDouble.ToString();
+        }
+
+        public void setOperatorFlag(string operatorType)
+        {
+            if (_userInput != null)
+            {
+                operatorFlag = operatorType;
+                _copiedResult = _userInput;
+            }
+
         }
     }
 }

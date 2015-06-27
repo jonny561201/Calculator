@@ -31,6 +31,42 @@ namespace Calculator
             Assert.AreEqual("1.1",testResult3);
         }
 
+        [Test]
+        public void whenOperatorSetCopyVariableToResult()
+        {
+            var testResult4 = new Operator();
+            testResult4.Combine("14");
+            testResult4.setOperatorFlag("Divide");
+
+            Assert.IsNotNullOrEmpty(testResult4._copiedResult);
+        }
+
+        [Test]
+        public void userIsAbleToSetOperatorFlag()
+        {
+            string operation = "Divide";
+            var testResult5 = new Operator();
+            testResult5.Combine("12");
+            testResult5.setOperatorFlag(operation);
+
+            Assert.AreEqual(testResult5.operatorFlag,operation);
+        }
+
+        [Test]
+        public void settingOperatorFlagDeletesUserInputVarTest()
+        {
+            
+        }
+
+        [Test]
+        public void cantSetOperatorPriortoUserInput()
+        {
+            Operator testResult6 = new Operator();
+            testResult6.setOperatorFlag("Multiply");
+
+            Assert.IsNullOrEmpty(testResult6.operatorFlag);
+        }
+
         private string newOperatorClass(string firstString, string secondString)
         {
             Operator testObject = new Operator();
