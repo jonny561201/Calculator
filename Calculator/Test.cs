@@ -12,21 +12,31 @@ namespace Calculator
     {
 
         [Test]
-        public void addTwoFiguresTogether()
+        public void addTwoFiguresTogetherTest()
         {
-            Operator test = new Operator();
-            string testResult = test.Combine("1");
-            testResult = test.Combine("2");
-            Assert.AreEqual("12",testResult);
+            var testResult1 = newOperatorClass("1","2");
+            Assert.AreEqual("12",testResult1);
         }
 
         [Test]
-        public void numberStartsWithZero()
+        public void numberStartsWithZeroTest()
         {
-            Operator test2 = new Operator();
-            string testResult = test2.Combine("0");
-            testResult= test2.Combine("1");
-            Assert.AreEqual("1",testResult);
+            var testResult2  = newOperatorClass("0","1");
+            Assert.AreEqual("1", testResult2);
+        }
+
+        [Test] public void numberContainsDecimalTest()
+        {
+            var testResult3 = newOperatorClass("1", ".1");
+            Assert.AreEqual("1.1",testResult3);
+        }
+
+        private string newOperatorClass(string firstString, string secondString)
+        {
+            Operator testObject = new Operator();
+            string updateResult = testObject.Combine(firstString);
+            updateResult = testObject.Combine(secondString);
+            return updateResult;
         }
     }
 }
