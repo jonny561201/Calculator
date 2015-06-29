@@ -32,7 +32,29 @@ namespace Calculator
 
         public void resultCalculation()
         {
-            _copiedResult = (double.Parse(_copiedResult) + double.Parse(_userInput)).ToString();
+            switch (operatorFlag)
+            {
+                case "Add":
+                {
+                    _copiedResult = (double.Parse(_copiedResult) + double.Parse(_userInput)).ToString();
+                    break;
+                }
+                case "Subtract":
+                {
+                    _copiedResult = (double.Parse(_copiedResult) - double.Parse(_userInput)).ToString();
+                    break;
+                }
+                case "Divide":
+                {
+                    _copiedResult = (double.Parse(_copiedResult) / double.Parse(_userInput)).ToString();
+                    break;
+                }
+                case "Multiply":
+                {
+                    _copiedResult = (double.Parse(_copiedResult) * double.Parse(_userInput)).ToString();    
+                    break;
+                }
+            }
         }
     }
 }

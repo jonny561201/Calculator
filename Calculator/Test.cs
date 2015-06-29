@@ -66,6 +66,18 @@ namespace Calculator
         }
 
         [Test]
+        public void divideTwoNumbers()
+        {
+            Operator testResult9 = new Operator();
+            testResult9.Combine("12");
+            testResult9.setOperatorFlag("Divide");
+            testResult9.Combine("2");
+            testResult9.resultCalculation();
+
+            Assert.AreEqual("6", testResult9._copiedResult);
+        }
+
+        [Test]
         public void whenResultCopiedValueDoesntStartWithZero()
         {
             Operator testResult8 = new Operator();
