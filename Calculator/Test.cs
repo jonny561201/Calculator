@@ -53,9 +53,25 @@ namespace Calculator
         }
 
         [Test]
-        public void settingOperatorFlagDeletesUserInputVarTest()
+        public void addTwoNumbersTogether()
         {
-            
+            Operator testResult7 = new Operator();
+            testResult7.Combine("12");
+            testResult7.setOperatorFlag("Add");
+            testResult7.Combine("2");
+
+            Assert.AreEqual(testResult7._copiedResult, "14");
+
+        }
+
+        [Test]
+        public void whenResultCopiedValueDoesntStartWithZero()
+        {
+            Operator testResult8 = new Operator();
+            testResult8.Combine("012");
+            testResult8.setOperatorFlag("Add");
+
+            Assert.AreEqual(testResult8._copiedResult,"12");
         }
 
         [Test]
