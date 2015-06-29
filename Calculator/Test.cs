@@ -59,8 +59,9 @@ namespace Calculator
             testResult7.Combine("12");
             testResult7.setOperatorFlag("Add");
             testResult7.Combine("2");
+            testResult7.resultCalculation();
 
-            Assert.AreEqual(testResult7._copiedResult, "14");
+            Assert.AreEqual("14",testResult7._copiedResult);
 
         }
 

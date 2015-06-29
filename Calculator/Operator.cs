@@ -15,10 +15,9 @@ namespace Calculator
         public string Combine(string p1)
         {
             _userInput += p1;
-            //Double userInputDouble = double.Parse(_userInput);
             _userInput = double.Parse(_userInput).ToString();
 
-            return _userInput; //userInputDouble.ToString();
+            return _userInput; 
         }
 
         public void setOperatorFlag(string operatorType)
@@ -27,13 +26,13 @@ namespace Calculator
             {
                 operatorFlag = operatorType;
                 _copiedResult = _userInput;
+                _userInput = null;
             }
-
         }
 
-        private void resultCalculation()
+        public void resultCalculation()
         {
-            
+            _copiedResult = (double.Parse(_copiedResult) + double.Parse(_userInput)).ToString();
         }
     }
 }
