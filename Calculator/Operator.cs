@@ -15,7 +15,7 @@ namespace Calculator
         public string Combine(string p1)
         {
             _userInput += p1;
-            Double userInputDouble = Convert.ToDouble(_userInput);
+            Double userInputDouble = double.Parse(_userInput);
 
             return userInputDouble.ToString();
         }
