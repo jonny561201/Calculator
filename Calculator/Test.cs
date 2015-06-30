@@ -96,6 +96,8 @@ namespace Calculator
             Assert.IsNullOrEmpty(testResult6.operatorFlag);
         }
 
+        [Test]
+
         private string newOperatorClass(string firstString, string secondString)
         {
             Operator testObject = new Operator();
