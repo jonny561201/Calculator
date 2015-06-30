@@ -29,57 +29,57 @@ namespace Calculator
 
         private void sevenButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(sevenButton.Text);
+            createStringAndDisplayOnScreen(sevenButton.Text);
         }
 
         private void eightButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(eightButton.Text);
+            createStringAndDisplayOnScreen(eightButton.Text);
         }
 
         private void nineButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(nineButton.Text);
+            createStringAndDisplayOnScreen(nineButton.Text);
         }
 
         private void fourButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(fourButton.Text);
+            createStringAndDisplayOnScreen(fourButton.Text);
         }
 
         private void fiveButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(fiveButton.Text);
+            createStringAndDisplayOnScreen(fiveButton.Text);
         }
 
         private void sixButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(sixButton.Text);
+            createStringAndDisplayOnScreen(sixButton.Text);
         }
 
         private void oneButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(oneButton.Text);
+            createStringAndDisplayOnScreen(oneButton.Text);
         }
 
         private void twoButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(twoButton.Text);
+            createStringAndDisplayOnScreen(twoButton.Text);
         }
 
         private void threeButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(threeButton.Text);
+            createStringAndDisplayOnScreen(threeButton.Text);
         }
 
         private void zeroButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(zeroButton.Text);
+            createStringAndDisplayOnScreen(zeroButton.Text);
         }
 
         private void decimalButton_Click(object sender, EventArgs e)
         {
-            _newOperator.Combine(decimalButton.Text);
+            createStringAndDisplayOnScreen(decimalButton.Text);
         }
 
         private void divideButton_Click(object sender, EventArgs e)
@@ -105,7 +105,18 @@ namespace Calculator
         private void equalButton_Click(object sender, EventArgs e)
         {
             _newOperator.resultCalculation();
+            resultBox.Text = _newOperator._copiedResult;
         }
 
+
+
+
+
+
+        private void createStringAndDisplayOnScreen(string numberText)
+        {
+            _newOperator.Combine(numberText);
+            resultBox.Text = _newOperator._userInput;
+        }
     }
 }

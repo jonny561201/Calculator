@@ -53,6 +53,17 @@ namespace Calculator
         }
 
         [Test]
+        public void ifResultIsPopulatedDontCopyOverResultWhenOperatorSet()
+        {
+            Operator testResult10 = new Operator();
+            testResult10._copiedResult = "10";
+            testResult10._userInput = "2";
+            testResult10.setOperatorFlag("Add");
+
+            Assert.AreEqual("10",testResult10._copiedResult);
+        }
+
+        [Test]
         public void addTwoNumbersTogether()
         {
             Operator testResult7 = new Operator();

@@ -9,7 +9,7 @@ namespace Calculator
     class Operator
     {
         public string _copiedResult;
-        private string _userInput;
+        public string _userInput;
         public string operatorFlag;
             
         public string Combine(string p1)
@@ -22,10 +22,15 @@ namespace Calculator
 
         public void setOperatorFlag(string operatorType)
         {
-            if (_userInput != null)
+            if (_userInput != null && _copiedResult == null)
             {
                 operatorFlag = operatorType;
                 _copiedResult = _userInput;
+                _userInput = null;
+            }
+            else if (_userInput != null)
+            {
+                operatorFlag = operatorType;
                 _userInput = null;
             }
         }
@@ -51,7 +56,7 @@ namespace Calculator
                 }
                 case "Multiply":
                 {
-                    _copiedResult = (double.Parse(_copiedResult) * double.Parse(_userInput)).ToString();    
+                    _copiedResult = (double.Parse(_copiedResult) * double.Parse(_userInput)).ToString();
                     break;
                 }
             }
