@@ -105,7 +105,7 @@ namespace Calculator
         private void equalButton_Click(object sender, EventArgs e)
         {
             _newOperator.resultCalculation();
-            resultBox.Text = _newOperator._copiedResult;
+            resultBox.Text = _newOperator.TextBoxCalculatedResult;
         }
 
 
@@ -116,7 +116,7 @@ namespace Calculator
         private void createStringAndDisplayOnScreen(string numberText)
         {
             _newOperator.Combine(numberText);
-            resultBox.Text = _newOperator._userInput;
+            resultBox.Text = _newOperator.TextBoxUserInput;
         }
     }
 }
