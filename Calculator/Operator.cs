@@ -10,7 +10,7 @@ namespace Calculator
     {
         public string TextBoxCalculatedResult { get; private set; }
         public string TextBoxUserInput { get; private set ; }
-        public string _operatorFlag;
+        private string _operatorFlag;
             
         public string Combine(string p1)
         {

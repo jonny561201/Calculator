@@ -14,20 +14,20 @@ namespace Calculator
         [Test]
         public void ShouldConcatenateNumbersBeforeOperator()
         {
-            var testResult1 = newOperatorClass("1","2");
+            var testResult1 = ConcatenateUsingObject("1","2");
             Assert.AreEqual("12",testResult1);
         }
 
         [Test]
         public void ShouldNotIncludePrependedZero()
         {
-            var testResult2  = newOperatorClass("0","1");
+            var testResult2  = ConcatenateUsingObject("0","1");
             Assert.AreEqual("1", testResult2);
         }
 
         [Test] public void ShouldConcatenateDecimal()
         {
-            var testResult3 = newOperatorClass("1", ".1");
+            var testResult3 = ConcatenateUsingObject("1", ".1");
             Assert.AreEqual("1.1",testResult3);
         }
 
@@ -66,26 +66,50 @@ namespace Calculator
         [Test]
         public void addTwoNumbersTogether()
         {
-            Operator testResult7 = new Operator();
-            testResult7.Combine("12");
-            testResult7.setOperatorFlag("Add");
-            testResult7.Combine("2");
-            testResult7.resultCalculation();
+            Operator testOperatorClass = new Operator();
+            testOperatorClass.Combine("12");
+            testOperatorClass.setOperatorFlag("Add");
+            testOperatorClass.Combine("2");
+            testOperatorClass.resultCalculation();
 
-            Assert.AreEqual("14",testResult7.TextBoxCalculatedResult);
+            Assert.AreEqual("14",testOperatorClass.TextBoxCalculatedResult);
 
         }
 
         [Test]
         public void divideTwoNumbers()
         {
-            Operator testResult9 = new Operator();
-            testResult9.Combine("12");
-            testResult9.setOperatorFlag("Divide");
-            testResult9.Combine("2");
-            testResult9.resultCalculation();
+            Operator testOperatorClass = new Operator();
+            testOperatorClass.Combine("12");
+            testOperatorClass.setOperatorFlag("Divide");
+            testOperatorClass.Combine("2");
+            testOperatorClass.resultCalculation();
 
-            Assert.AreEqual("6", testResult9.TextBoxCalculatedResult);
+            Assert.AreEqual("6", testOperatorClass.TextBoxCalculatedResult);
+        }
+
+        [Test]
+        public void MultiplyTwoNumbers()
+        {
+            Operator testOperatorClass = new Operator();
+            testOperatorClass.Combine("12");
+            testOperatorClass.setOperatorFlag("Multiply");
+            testOperatorClass.Combine("2");
+            testOperatorClass.resultCalculation();
+
+            Assert.AreEqual("24", testOperatorClass.TextBoxCalculatedResult);
+        }
+
+        [Test]
+        public void SubtractTwoNumbers()
+        {
+            Operator testOperatorClass = new Operator();
+            testOperatorClass.Combine("12");
+            testOperatorClass.setOperatorFlag("Subtract");
+            testOperatorClass.Combine("2");
+            testOperatorClass.resultCalculation();
+                
+            Assert.AreEqual("10", testOperatorClass.TextBoxCalculatedResult);
         }
 
         //[Test]
@@ -101,23 +125,39 @@ namespace Calculator
         [Test]
         public void cantSetOperatorPriortoUserInput()
         {
-            Operator testResult6 = new Operator();
-            testResult6.setOperatorFlag("Multiply");
-            testResult6.Combine("3");
-            testResult6.setOperatorFlag("Add");
-            testResult6.Combine("3");
-            testResult6.resultCalculation();
+            Operator testOperatorClass = new Operator();
+            testOperatorClass.setOperatorFlag("Multiply");
+            testOperatorClass.Combine("3");
+            testOperatorClass.setOperatorFlag("Add");
+            testOperatorClass.Combine("3");
+            testOperatorClass.resultCalculation();
 
-            Assert.AreEqual("6", testResult6.TextBoxCalculatedResult);
+            Assert.AreEqual("6", testOperatorClass.TextBoxCalculatedResult);
+        }
+
+        [Test]
+        public void ShouldPerformSubsequentOperation()
+        {
+            Operator testOperatorClass = new Operator();
+            testOperatorClass.Combine("12");
+            testOperatorClass.setOperatorFlag("Add");
+            testOperatorClass.Combine("2");
+            testOperatorClass.resultCalculation();
+            testOperatorClass.setOperatorFlag("Multiply");
+            testOperatorClass.Combine("2");
+            testOperatorClass.resultCalculation();
+
+            Assert.AreEqual("28",testOperatorClass.TextBoxCalculatedResult);
         }
 
 
-        private string newOperatorClass(string firstString, string secondString)
+        private string ConcatenateUsingObject(string firstString, string secondString)
         {
             Operator testObject = new Operator();
-            string updateResult = testObject.Combine(firstString);
-            updateResult = testObject.Combine(secondString);
-            return updateResult;
+            testObject.Combine(firstString);
+            testObject.Combine(secondString);
+
+            return testObject.TextBoxUserInput;
         }
     }
 }
