@@ -49,7 +49,7 @@ namespace Calculator
             testResult5.Combine("12");
             testResult5.setOperatorFlag(operation);
 
-            Assert.AreEqual(testResult5.operatorFlag,operation);
+            Assert.AreEqual(testResult5._operatorFlag,operation);
         }
 
         [Test]
@@ -104,7 +104,7 @@ namespace Calculator
             Operator testResult6 = new Operator();
             testResult6.setOperatorFlag("Multiply");
 
-            Assert.IsNullOrEmpty(testResult6.operatorFlag);
+            Assert.IsNullOrEmpty(testResult6._operatorFlag);
         }
 
         [Test]

@@ -10,7 +10,7 @@ namespace Calculator
     {
         public string _copiedResult;
         public string _userInput;
-        public string operatorFlag;
+        public string _operatorFlag;
             
         public string Combine(string p1)
         {
@@ -24,20 +24,20 @@ namespace Calculator
         {
             if (_userInput != null && _copiedResult == null)
             {
-                operatorFlag = operatorType;
+                _operatorFlag = operatorType;
                 _copiedResult = _userInput;
                 _userInput = null;
             }
             else if (_userInput != null)
             {
-                operatorFlag = operatorType;
+                _operatorFlag = operatorType;
                 _userInput = null;
             }
         }
 
         public void resultCalculation()
         {
-            switch (operatorFlag)
+            switch (_operatorFlag)
             {
                 case "Add":
                 {
