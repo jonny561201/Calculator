@@ -150,6 +150,34 @@ namespace Calculator
             Assert.AreEqual("28",testOperatorClass.TextBoxCalculatedResult);
         }
 
+        [Test]
+        public void WhenUsingResultValueShouldNotModifyUserInput()
+        {
+            Operator testOperatorClass = new Operator();
+            testOperatorClass.Combine("1");
+            testOperatorClass.setOperatorFlag("Add");
+            testOperatorClass.Combine("2");
+            testOperatorClass.resultCalculation();
+            testOperatorClass.Combine("3");
+
+            Assert.AreEqual("3", testOperatorClass.TextBoxUserInput);
+        }
+
+        [Test]
+        public void WhenStartingWithResultShouldPerformNewOperation()
+        {
+            Operator testOperatorClass = new Operator();
+            testOperatorClass.Combine("3");
+            testOperatorClass.setOperatorFlag("Add");
+            testOperatorClass.Combine("2");
+            testOperatorClass.resultCalculation();
+            testOperatorClass.Combine("3");
+            testOperatorClass.setOperatorFlag("Add");
+            testOperatorClass.Combine("2");
+            testOperatorClass.resultCalculation();
+
+            Assert.AreEqual("5",testOperatorClass.TextBoxCalculatedResult);
+        }
 
         private string ConcatenateUsingObject(string firstString, string secondString)
         {

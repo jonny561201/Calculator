@@ -22,17 +22,13 @@ namespace Calculator
 
         public void setOperatorFlag(string operatorType)
         {
-            if (TextBoxUserInput != null && TextBoxCalculatedResult == null)
+            _operatorFlag = operatorType;
+
+            if (!string.IsNullOrEmpty(TextBoxUserInput))
             {
-                _operatorFlag = operatorType;
                 TextBoxCalculatedResult = TextBoxUserInput;
-                TextBoxUserInput = null;
             }
-            else if (TextBoxUserInput != null)
-            {
-                _operatorFlag = operatorType;
-                TextBoxUserInput = null;
-            }
+            TextBoxUserInput = null;
         }
 
         public void resultCalculation()
@@ -60,6 +56,7 @@ namespace Calculator
                     break;
                 }
             }
+            TextBoxUserInput = "";
         }
     }
 }
