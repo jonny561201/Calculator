@@ -20,6 +20,11 @@ namespace Calculator
             return TextBoxUserInput; 
         }
 
+        public void Remove()
+        {
+            TextBoxUserInput = TextBoxUserInput.Remove(TextBoxUserInput.Length - 1);
+        }
+
         public void setOperatorFlag(string operatorType)
         {
             _operatorFlag = operatorType;

@@ -118,5 +118,90 @@ namespace Calculator
             _newOperator.Combine(numberText);
             resultBox.Text = _newOperator.TextBoxUserInput;
         }
+
+        private void CalculatorMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            string test = e.KeyCode.ToString();
+
+            switch (test)
+            {
+                case "NumPad1":
+                {
+                    createStringAndDisplayOnScreen(oneButton.Text);
+                    break;
+                }
+                case "NumPad2":
+                {
+                    createStringAndDisplayOnScreen(twoButton.Text);
+                    break;
+                }
+                case "NumPad3":
+                {
+                    createStringAndDisplayOnScreen(threeButton.Text);
+                    break;
+                }
+                case "NumPad4":
+                {
+                    createStringAndDisplayOnScreen(fourButton.Text);
+                    break;
+                }
+                case "NumPad5":
+                {
+                    createStringAndDisplayOnScreen(fiveButton.Text);
+                    break;
+                }
+                case "NumPad6":
+                {
+                    createStringAndDisplayOnScreen(sixButton.Text);
+                    break;
+                }
+                case "NumPad7":
+                {
+                    createStringAndDisplayOnScreen(sevenButton.Text);
+                    break;
+                }
+                case "NumPad8":
+                {
+                    createStringAndDisplayOnScreen(eightButton.Text);
+                    break;
+                }
+                case "NumPad9":
+                {
+                    createStringAndDisplayOnScreen(nineButton.Text);
+                    break;
+                }
+                case "NumPad0":
+                {
+                    createStringAndDisplayOnScreen(zeroButton.Text);
+                    break;
+                }
+                case "Add":
+                {
+                    _newOperator.setOperatorFlag("Add");
+                    break;
+                }
+                case "Subtract":
+                {
+                    _newOperator.setOperatorFlag("Subtract");
+                    break;
+                }
+                case "Multiply":
+                {
+                    _newOperator.setOperatorFlag("Multiply");
+                    break;
+                }
+                case "Divide":
+                {
+                    _newOperator.setOperatorFlag("Divide");
+                    break;
+                }
+                case "Back":
+                {
+                    _newOperator.Remove();
+                    resultBox.Text = _newOperator.TextBoxUserInput;
+                    break;
+                }
+            }
+        }
     }
 }

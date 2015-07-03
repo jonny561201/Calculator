@@ -239,9 +239,11 @@
             this.Controls.Add(this.nineButton);
             this.Controls.Add(this.eightButton);
             this.Controls.Add(this.sevenButton);
+            this.KeyPreview = true;
             this.Name = "CalculatorMain";
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.CalculatorMain_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CalculatorMain_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

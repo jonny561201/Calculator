@@ -179,6 +179,16 @@ namespace Calculator
             Assert.AreEqual("5",testOperatorClass.TextBoxCalculatedResult);
         }
 
+        [Test]
+        public void WhenPressingBackspaceButtonRemovesText()
+        {
+            Operator testOperatorClass = new Operator();
+            testOperatorClass.Combine("154");
+            testOperatorClass.Remove();
+
+            Assert.AreEqual("15",testOperatorClass.TextBoxUserInput);
+        }
+
         private string ConcatenateUsingObject(string firstString, string secondString)
         {
             Operator testObject = new Operator();
